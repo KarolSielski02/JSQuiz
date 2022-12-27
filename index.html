@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz App</title>
+    <link href="styles.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class = "navbar">
+        <div class="navDiv"></div>
+        <div class="navDiv"><p> << Q.U.I.Z  THE  GAME >> </p></div>
+        <div class="navDiv"><button class="btn-nav btn">Account</button></div>
+    </div>
+    <div class = "container">
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
+        <div>
+            <p id="score"></p>
+        </div>
+    </div>
+</body>
+</html>

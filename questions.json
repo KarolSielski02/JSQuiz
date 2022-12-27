@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "quizType": "math",
+      "question": "what is 2 + 2",
+      "answers": [
+        {
+          "text": "4",
+          "correct": true
+        },
+        {
+          "text": "22",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "quizType": "math",
+      "question": "what is 4 * 8",
+      "answers": [
+        {
+          "text": "32",
+          "correct": true
+        },
+        {
+          "text": "16",
+          "correct": false
+        },
+        {
+          "text": "48",
+          "correct": false
+        },
+        {
+          "text": "84",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
