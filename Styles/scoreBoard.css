@@ -1,0 +1,23 @@
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: #141414;
+    padding: 10px;
+    border: 2px dashed rgb(255, 255, 255);
+    /* box-shadow: 0 0 10px 2px grey; */
+}
+
+.container-scoreBoard{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-auto-rows: 1fr;
+}
+
+.container-scoreBoard-gridContainer{
+    height: 300px;
+    border: solid aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
