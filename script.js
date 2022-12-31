@@ -23,6 +23,7 @@ nextButton.addEventListener('click', () => {
 goToScoreBoardButton.addEventListener('click', () => {
     scoreBoardContainer.classList.remove('hide');
     mainQuestionSectionContainer.classList.add('hide');
+    document.getElementById('score-scoreBoard').innerHTML = correctAnswers;
 })
 
 function startGame() {

@@ -15,7 +15,7 @@
 .btn-nav{
     height: 50%;
     width: 25%;
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .btn:hover {
@@ -24,7 +24,7 @@
 }
 
 .start-btn, .next-btn {
-    font-size: 1.5rem;
+    font-size: 1em;
     padding: 10px 20px;
 }
 
