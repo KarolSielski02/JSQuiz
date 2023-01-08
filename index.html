@@ -9,14 +9,15 @@
     <link href="Styles/scoreBoard.css" rel="stylesheet">
     <link href="Styles/functional.css" rel="stylesheet">
     <link href="Styles/questions.css" rel="stylesheet">
-    <script defer src="script.js"></script>
+    <script defer src="script.js" type = "module"></script>
+    <script defer src="Login.js" type = "module"></script>
 </head>
 <body>
 <div class="navbar">
     <div class="navDiv"></div>
     <div class="navDiv"><p> << Q.U.I.Z THE GAME >> </p></div>
     <div class="navDiv">
-        <button class="btn-nav btn">Account</button>
+        <a href="account.html" class="btn-nav btn">SIGN IN</a>
     </div>
 </div>
 
@@ -28,6 +29,13 @@
             <button class="btn">Answer 2</button>
             <button class="btn">Answer 3</button>
             <button class="btn">Answer 4</button>
+
+            <select id="answer-select">
+                <option>Answer 1</option>
+                <option>Answer 2</option>
+                <option>Answer 3</option>
+                <option>Answer 4</option>
+            </select>
         </div>
     </div>
     <div class="controls">
@@ -55,7 +63,11 @@
             </div>
         </div>
     </div>
-    <div class="container-scoreBoard-gridContainer">b</div>
+    <div class="container-scoreBoard-gridContainer">
+        <div></div>
+        <div></div>
+    </div>
+
 </div>
 </body>
 </html>

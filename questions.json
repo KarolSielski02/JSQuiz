@@ -2,21 +2,89 @@
   "questions": [
     {
       "quizType": "math",
-      "question": "what is 2 + 2",
+      "questionType": "ABCD-TF",
+      "question": "Is 2 + 2 = 4?",
       "answers": [
         {
-          "text": "4",
+          "text": "True",
           "correct": true
         },
         {
-          "text": "22",
+          "text": "False",
           "correct": false
         }
       ]
     },
     {
       "quizType": "math",
-      "question": "what is 4 * 8",
+      "questionType": "ABCD-TF",
+      "question": "what is 4 * 8 #1",
+      "answers": [
+        {
+          "text": "32",
+          "correct": true
+        },
+        {
+          "text": "16",
+          "correct": false
+        },
+        {
+          "text": "48",
+          "correct": false
+        },
+        {
+          "text": "84",
+          "correct": false
+        }
+      ]
+    },{
+      "quizType": "math",
+      "questionType": "ABCD-TF",
+      "question": "what is 4 * 8 #2",
+      "answers": [
+        {
+          "text": "32",
+          "correct": true
+        },
+        {
+          "text": "16",
+          "correct": false
+        },
+        {
+          "text": "48",
+          "correct": false
+        },
+        {
+          "text": "84",
+          "correct": false
+        }
+      ]
+    },{
+      "quizType": "math",
+      "questionType": "ABCD-TF",
+      "question": "what is 4 * 8 #3",
+      "answers": [
+        {
+          "text": "32",
+          "correct": true
+        },
+        {
+          "text": "16",
+          "correct": false
+        },
+        {
+          "text": "48",
+          "correct": false
+        },
+        {
+          "text": "84",
+          "correct": false
+        }
+      ]
+    },{
+      "quizType": "math",
+      "questionType": "ABCD-TF",
+      "question": "what is 4 * 8 #4",
       "answers": [
         {
           "text": "32",

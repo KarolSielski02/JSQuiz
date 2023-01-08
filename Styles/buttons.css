@@ -14,8 +14,13 @@
 
 .btn-nav{
     height: 50%;
-    width: 25%;
+    width: 30%;
     font-size: 1em;
+    text-decoration: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn:hover {
