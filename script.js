@@ -11,6 +11,7 @@ const restartButton = document.getElementById('startAgain-button');
 
 let correctAnswers = 0;
 let check = 0;
+let timerFlag = true;
 let shuffledQuestions, currentQuestionIndex, usedIndexList, questionsList;
 
 var xhttp = new XMLHttpRequest();
@@ -47,6 +48,7 @@ function startGame() {
     correctAnswers = 0;
     currentQuestionIndex = 0;
     check = 0;
+    timerFlag = true;
     shuffledQuestions = questionsList.questions //questions.sort(() => Math.random - .5); // <---- change to DB
     usedIndexList = []
     questionContainerElement.classList.remove('hide')
@@ -73,6 +75,7 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
+    timer()
     questionElement.innerText = question.question
     switch (question.questionType) {
         case 'ABCD-TF':
@@ -110,6 +113,7 @@ function showQuestion(question) {
 }
 
 function resetState() {
+    timerFlag = true;
     nextButton.classList.add('hide')
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild
@@ -120,6 +124,7 @@ function resetState() {
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
+    timerFlag = false;
     if (check < 1) {
         setStatusClass(selectedButton, correct);
         check++
@@ -139,9 +144,9 @@ function setStatusClass(element, correct) {
     if (correct) {
         element.classList.add('correct')
         correctAnswers += 10;
-        // document.getElementById('score').innerHTML = "Score: " + correctAnswers.update(document.getElementById('score').innerHTML = "Score: " + correctAnswers);
     } else {
         element.classList.add('wrong')
+        correctAnswers -= 5;
     }
 }
 
@@ -150,37 +155,37 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
+function timer() {
+// Set the date we're counting down to
+    var timeCheck = 16;
 
-// const questions = [{
-//     question: 'what is 2 + 2',
-//     answers: [
-//         {text: '4', correct: true},
-//         {text: '22', correct: false}
-//     ]
-// }, {
-//     question: 'what is 4 * 8  #1',
-//     answers: [
-//         {text: '32', correct: true},
-//         {text: '16', correct: false},
-//         {text: '48', correct: false},
-//         {text: '84', correct: false}
-//     ]
-// }, {
-//     question: 'what is 4 * 8  #2',
-//     answers: [
-//         {text: '32', correct: true},
-//         {text: '16', correct: false},
-//         {text: '48', correct: false},
-//         {text: '84', correct: false}
-//     ]
-// }, {
-//     question: 'what is 4 * 8  #3',
-//     answers: [
-//         {text: '32', correct: true},
-//         {text: '16', correct: false},
-//         {text: '48', correct: false},
-//         {text: '84', correct: false}
-//     ]
-// }
-//
-// ]
+// Update the count down every 1 second
+    var timer = setInterval(function () {
+
+        if (timerFlag === false) {
+            return 0;
+        } else {
+            timeCheck -= 1;
+
+            // Display the result in the element with id="demo"
+            document.getElementById("timer").innerHTML = "Time left: " + timeCheck + "s ";
+
+
+            // If the count down is finished, write some text
+            if (timeCheck <= 0) {
+                clearInterval(timer);
+                correctAnswers -= 5;
+                currentQuestionIndex ++;
+                if (shuffledQuestions.length > currentQuestionIndex + 1) {
+                    nextButton.classList.remove('hide')
+                } else {
+                    goToScoreBoardButton.classList.remove('hide')
+                    document.getElementById("timer").classList.add('hide')
+                    return 0;
+                }
+                setNextQuestion();
+                return 0;
+            }
+        }
+    }, 1000);
+}
