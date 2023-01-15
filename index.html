@@ -9,8 +9,10 @@
     <link href="Styles/scoreBoard.css" rel="stylesheet">
     <link href="Styles/functional.css" rel="stylesheet">
     <link href="Styles/questions.css" rel="stylesheet">
+    <link href="Styles/mainMenu.css" rel="stylesheet">
     <script defer src="script.js" type = "module"></script>
     <script defer src="Login.js" type = "module"></script>
+    <script defer src="Menu.js" type = "module"></script>
 </head>
 <body>
 <div class="navbar">
@@ -21,7 +23,7 @@
     </div>
 </div>
 
-<div id="mainQuestionSectionContainer" class="container container-question-flex">
+<div id="mainQuestionSectionContainer" class="container container-question-flex hide">
     <div id="question-container" class="hide">
         <div id="question">Question</div>
         <div id="answer-buttons" class="btn-grid">
@@ -60,7 +62,7 @@
                 <button id="startAgain-button" class="start-btn btn btn-scoreBoard">Restart</button>
             </div>
             <div class="menu-scoreBoard-grid-item">
-                <button id="blank" class="start-btn btn btn-scoreBoard">Exit</button>
+                <button id="Exit" class="start-btn btn btn-scoreBoard">Exit</button>
             </div>
         </div>
     </div>
@@ -69,6 +71,12 @@
         <div></div>
     </div>
 
+</div>
+
+<div id="mainMenu-container" class="mainMenu-container">
+    <h2> Choose Q.U.I.Z </h2>
+    <form id="selectQuizForm" class="mainMenu-container">
+    </form>
 </div>
 </body>
 </html>

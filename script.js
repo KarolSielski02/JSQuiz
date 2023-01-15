@@ -11,45 +11,33 @@ const restartButton = document.getElementById('startAgain-button');
 
 let correctAnswers = 0;
 let check = 0;
-let timerFlag = true;
-let shuffledQuestions, currentQuestionIndex, usedIndexList, questionsList;
+let timerWork;
+let shuffledQuestions, currentQuestionIndex, usedIndexList;
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        questionsList = JSON.parse(xhttp.responseText);
-    }
-};
-xhttp.open("GET", "questions.json", true);
-xhttp.send();
+import questionsList from './questions.json' assert {type: 'json'};
 
 
-startButton.addEventListener('click', startGame);
-nextButton.addEventListener('click', () => {
-    currentQuestionIndex++
-    check = 0;
-    setNextQuestion()
-})
-goToScoreBoardButton.addEventListener('click', () => {
-    scoreBoardContainer.classList.remove('hide');
-    mainQuestionSectionContainer.classList.add('hide');
-    document.getElementById('score-scoreBoard').innerHTML = correctAnswers;
-})
-restartButton.addEventListener('click', () => {
-    scoreBoardContainer.classList.add('hide');
-    goToScoreBoardButton.classList.add('hide')
-    mainQuestionSectionContainer.classList.remove('hide');
-    startGame();
-});
+function findQuiz(id) {
+    console.log(id)
+    let tempArr = []
+    questionsList.quizzes.forEach(element => {
+        if (element.quizName.toString() === id) {
+            console.log(element.questions)
+            shuffledQuestions = element.questions;
+        }
+    })
+    return [null];
+}
 
-
-function startGame() {
+window.startGame = function startGame(id) {
+    // console.log(questionsList.quizzes[0].questions)
     startButton.classList.add('hide')
+    document.getElementById("timer").classList.remove('hide')
     correctAnswers = 0;
     currentQuestionIndex = 0;
     check = 0;
-    timerFlag = true;
-    shuffledQuestions = questionsList.questions //questions.sort(() => Math.random - .5); // <---- change to DB
+    findQuiz(id) //change to show questions from valid quizz
+    console.log(shuffledQuestions)
     usedIndexList = []
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
@@ -75,7 +63,7 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-    timer()
+    timer();
     questionElement.innerText = question.question
     switch (question.questionType) {
         case 'ABCD-TF':
@@ -113,7 +101,6 @@ function showQuestion(question) {
 }
 
 function resetState() {
-    timerFlag = true;
     nextButton.classList.add('hide')
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild
@@ -124,7 +111,6 @@ function resetState() {
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
-    timerFlag = false;
     if (check < 1) {
         setStatusClass(selectedButton, correct);
         check++
@@ -133,10 +119,8 @@ function selectAnswer(e) {
         nextButton.classList.remove('hide')
     } else {
         goToScoreBoardButton.classList.remove('hide')
-
-        // startButton.innerText = 'Once more'
-        // startButton.classList.remove('hide')
     }
+    clearInterval(timerWork);
 }
 
 function setStatusClass(element, correct) {
@@ -156,36 +140,43 @@ function clearStatusClass(element) {
 }
 
 function timer() {
-// Set the date we're counting down to
-    var timeCheck = 16;
+    clearInterval(timerWork);
+    let timeCheck = 16;
 
-// Update the count down every 1 second
-    var timer = setInterval(function () {
-
-        if (timerFlag === false) {
-            return 0;
-        } else {
-            timeCheck -= 1;
-
-            // Display the result in the element with id="demo"
-            document.getElementById("timer").innerHTML = "Time left: " + timeCheck + "s ";
-
-
-            // If the count down is finished, write some text
-            if (timeCheck <= 0) {
-                clearInterval(timer);
-                correctAnswers -= 5;
-                currentQuestionIndex ++;
-                if (shuffledQuestions.length > currentQuestionIndex + 1) {
-                    nextButton.classList.remove('hide')
-                } else {
-                    goToScoreBoardButton.classList.remove('hide')
-                    document.getElementById("timer").classList.add('hide')
-                    return 0;
-                }
-                setNextQuestion();
+    timerWork = setInterval(function () {
+        timeCheck -= 1;
+        document.getElementById("timer").innerHTML = "Time left: " + timeCheck + "s ";
+        if (timeCheck <= 0) {
+            clearInterval(timerWork);
+            correctAnswers -= 5;
+            currentQuestionIndex++;
+            if (shuffledQuestions.length > currentQuestionIndex + 1) {
+                nextButton.classList.remove('hide')
+            } else {
+                goToScoreBoardButton.classList.remove('hide')
+                document.getElementById("timer").classList.add('hide')
                 return 0;
             }
+            setNextQuestion();
+            return 0;
         }
     }, 1000);
 }
+
+// startButton.addEventListener('click', startGame("Math"));
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++
+    check = 0;
+    setNextQuestion()
+})
+goToScoreBoardButton.addEventListener('click', () => {
+    scoreBoardContainer.classList.remove('hide');
+    mainQuestionSectionContainer.classList.add('hide');
+    document.getElementById('score-scoreBoard').innerHTML = correctAnswers;
+})
+restartButton.addEventListener('click', () => {
+    scoreBoardContainer.classList.add('hide');
+    goToScoreBoardButton.classList.add('hide')
+    mainQuestionSectionContainer.classList.remove('hide');
+    startGame();
+});
