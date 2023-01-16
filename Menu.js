@@ -5,10 +5,10 @@ const selectQuizForm = document.getElementById("selectQuizForm")
 const mainQuestionSectionContainer = document.getElementById("mainQuestionSectionContainer");
 import questionsList from './questions.json' assert {type: 'json'};
 
+createQuizList();
 exitButton.addEventListener('click', () => {
     scoreBoardContainer.classList.add("hide");
     mainMenuContainer.classList.remove("hide");
-    createQuizList()
 })
 
 function createQuizList() {
@@ -19,14 +19,13 @@ function createQuizList() {
             button.value = element.quizName
             button.classList.add('btn')
             button.classList.add('btn-quiz-choice')
-            button.onclick = function () {
-                startGame(button.value)
+            button.addEventListener('click', function () {
                 mainMenuContainer.classList.add('hide')
                 mainQuestionSectionContainer.classList.remove('hide')
-            }
-            selectQuizForm.appendChild(button);
+                console.log("Button on click")
+                startGame(button.value)
+            })
+            mainMenuContainer.appendChild(button);
         }
     )
 }
-
-createQuizList()

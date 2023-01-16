@@ -8,18 +8,20 @@ const selectOptionsElement = document.getElementById('answer-select');
 const mainQuestionSectionContainer = document.getElementById("mainQuestionSectionContainer");
 const scoreBoardContainer = document.getElementById("scoreBoardContainer");
 const restartButton = document.getElementById('startAgain-button');
+const submitUserName = document.getElementById("submitUserName");
+const userName = document.getElementById("userName")
 
 let correctAnswers = 0;
 let check = 0;
 let timerWork;
 let shuffledQuestions, currentQuestionIndex, usedIndexList;
+let quizPlayerName;
 
 import questionsList from './questions.json' assert {type: 'json'};
 
 
 function findQuiz(id) {
     console.log(id)
-    let tempArr = []
     questionsList.quizzes.forEach(element => {
         if (element.quizName.toString() === id) {
             console.log(element.questions)
@@ -32,6 +34,7 @@ function findQuiz(id) {
 window.startGame = function startGame(id) {
     // console.log(questionsList.quizzes[0].questions)
     startButton.classList.add('hide')
+    goToScoreBoardButton.classList.add('hide')
     document.getElementById("timer").classList.remove('hide')
     correctAnswers = 0;
     currentQuestionIndex = 0;
@@ -41,6 +44,7 @@ window.startGame = function startGame(id) {
     usedIndexList = []
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
+    console.log("aaaaaa pomocy")
 }
 
 function mixQuestions() {
@@ -180,3 +184,14 @@ restartButton.addEventListener('click', () => {
     mainQuestionSectionContainer.classList.remove('hide');
     startGame();
 });
+
+submitUserName.addEventListener('click', () =>{
+    if (userName.value === null || userName.value === ""){
+        document.getElementById('warning').innerHTML = "Name cannot be null"
+    } else {
+        quizPlayerName = userName.value
+        console.log(quizPlayerName)
+    }
+})
+
+

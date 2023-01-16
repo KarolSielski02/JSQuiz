@@ -10,9 +10,10 @@
     <link href="Styles/functional.css" rel="stylesheet">
     <link href="Styles/questions.css" rel="stylesheet">
     <link href="Styles/mainMenu.css" rel="stylesheet">
-    <script defer src="script.js" type = "module"></script>
-    <script defer src="Login.js" type = "module"></script>
-    <script defer src="Menu.js" type = "module"></script>
+    <link href="Styles/loginSubPage.css" rel="stylesheet">
+    <script defer src="script.js" type="module"></script>
+    <script defer src="Login.js" type="module"></script>
+    <script defer src="Menu.js" type="module"></script>
 </head>
 <body>
 <div class="navbar">
@@ -75,8 +76,16 @@
 
 <div id="mainMenu-container" class="mainMenu-container">
     <h2> Choose Q.U.I.Z </h2>
-    <form id="selectQuizForm" class="mainMenu-container">
-    </form>
+
+</div>
+
+<div class="mainMenu-container">
+    <label class="mainMenu-container">
+        <h3>Your name</h3>
+        <input type="text" id="userName" class="input-txt">
+        <button class="btn" id="submitUserName">submit</button>
+        <p id="warning"></p>
+    </label>
 </div>
 </body>
 </html>
