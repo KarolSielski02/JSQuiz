@@ -15,7 +15,6 @@
 
 .container-scoreBoard-gridContainer{
     height: 300px;
-    border: solid aqua;
     display: flex;
     flex-direction: column;
     justify-content: center;

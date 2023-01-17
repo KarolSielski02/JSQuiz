@@ -10,12 +10,16 @@ const scoreBoardContainer = document.getElementById("scoreBoardContainer");
 const restartButton = document.getElementById('startAgain-button');
 const submitUserName = document.getElementById("submitUserName");
 const userName = document.getElementById("userName")
+const nameInput = document.getElementById("nameInput");
+const highScoreBoard = document.getElementById("highScoreBoard");
+
 
 let correctAnswers = 0;
 let check = 0;
 let timerWork;
 let shuffledQuestions, currentQuestionIndex, usedIndexList;
 let quizPlayerName;
+let quizId;
 
 import questionsList from './questions.json' assert {type: 'json'};
 
@@ -32,6 +36,9 @@ function findQuiz(id) {
 }
 
 window.startGame = function startGame(id) {
+    while (highScoreBoard.firstChild){
+        highScoreBoard.removeChild(highScoreBoard.lastChild)
+    }
     // console.log(questionsList.quizzes[0].questions)
     startButton.classList.add('hide')
     goToScoreBoardButton.classList.add('hide')
@@ -45,6 +52,12 @@ window.startGame = function startGame(id) {
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
     console.log("aaaaaa pomocy")
+}
+
+window.assignID = function assignID(id) {
+    console.log("id of quizz: " + id)
+    quizId = id;
+    console.log("id of quizz: " + quizId)
 }
 
 function mixQuestions() {
@@ -122,6 +135,8 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide')
     } else {
+        createJSONRecordObject();
+        createScoreBoard();
         goToScoreBoardButton.classList.remove('hide')
     }
     clearInterval(timerWork);
@@ -157,6 +172,7 @@ function timer() {
             if (shuffledQuestions.length > currentQuestionIndex + 1) {
                 nextButton.classList.remove('hide')
             } else {
+                createJSONRecordObject();
                 goToScoreBoardButton.classList.remove('hide')
                 document.getElementById("timer").classList.add('hide')
                 return 0;
@@ -167,7 +183,42 @@ function timer() {
     }, 1000);
 }
 
-// startButton.addEventListener('click', startGame("Math"));
+function createJSONRecordObject() {
+    const JSONObject = {
+        quizName:quizId,
+        playerName:quizPlayerName,
+        score:correctAnswers
+    }
+    const scores = localStorage.getItem("highScore")
+    if (!scores) {
+        localStorage.setItem("highScore", JSON.stringify([JSONObject]))
+    } else {
+        const array = JSON.parse(scores)
+        console.log(array)
+        array.push(JSONObject)
+        localStorage.setItem("highScore", JSON.stringify(array))
+    }
+}
+
+function createScoreBoard(){
+    let flag = 0;
+    const scores = JSON.parse(localStorage.getItem("highScore"))
+    scores.sort((a,b)=>b.score-a.score)
+    console.log(scores)
+    scores.forEach(element => {
+        if (flag > 9){
+            return;
+        }
+        if (element.quizName === quizId) {
+            flag++
+            console.log()
+            const li = document.createElement('li')
+            li.innerHTML = element.playerName + " " + element.score + ".points"
+            highScoreBoard.appendChild(li);
+        }
+    })
+}
+
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
     check = 0;
@@ -185,12 +236,16 @@ restartButton.addEventListener('click', () => {
     startGame();
 });
 
-submitUserName.addEventListener('click', () =>{
-    if (userName.value === null || userName.value === ""){
+submitUserName.addEventListener('click', () => {
+    if (userName.value === null || userName.value === "") {
         document.getElementById('warning').innerHTML = "Name cannot be null"
     } else {
         quizPlayerName = userName.value
         console.log(quizPlayerName)
+        nameInput.classList.add('hide')
+        mainQuestionSectionContainer.classList.remove("hide")
+        console.log(quizId)
+        startGame(quizId)
     }
 })
 
