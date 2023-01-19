@@ -108,11 +108,11 @@
       ]
     },
     {
-      "quizName": "Math",
+      "quizName": "Programming ",
       "questions": [
         {
           "questionType": "ABCD-TF",
-          "question": "Is 2 + 2 = 4?",
+          "question": "Object-oriented programming (OOP) is a programming paradigm that is based on the concept of \"objects\" which have properties and methods.",
           "answers": [
             {
               "text": "True",
@@ -126,88 +126,80 @@
         },
         {
           "questionType": "ABCD-TF",
-          "question": "what is 4 * 8 #1",
+          "question": "A compiler is a program that turns source code into machine code that can be executed by a computer.",
           "answers": [
             {
-              "text": "32",
+              "text": "True",
               "correct": true
             },
             {
-              "text": "16",
-              "correct": false
-            },
-            {
-              "text": "48",
-              "correct": false
-            },
-            {
-              "text": "84",
+              "text": "False",
               "correct": false
             }
           ]
         },
         {
           "questionType": "ABCD-TF",
-          "question": "what is 4 * 8 #2",
+          "question": "Which of the following is not a property of a good function?",
           "answers": [
             {
-              "text": "32",
+              "text": "Reusability",
+              "correct": false
+            },
+            {
+              "text": "Readability",
+              "correct": false
+            },
+            {
+              "text": "Complexity",
               "correct": true
             },
             {
-              "text": "16",
-              "correct": false
-            },
-            {
-              "text": "48",
-              "correct": false
-            },
-            {
-              "text": "84",
+              "text": "Understandability",
               "correct": false
             }
           ]
         },
         {
           "questionType": "ABCD-TF",
-          "question": "what is 4 * 8 #3",
+          "question": "Which of the following is not a design pattern in software engineering?",
           "answers": [
             {
-              "text": "32",
+              "text": "Singleton",
+              "correct": false
+            },
+            {
+              "text": "Factory",
+              "correct": false
+            },
+            {
+              "text": "Abstract factory",
+              "correct": false
+            },
+            {
+              "text": "Spaceship",
               "correct": true
-            },
-            {
-              "text": "16",
-              "correct": false
-            },
-            {
-              "text": "48",
-              "correct": false
-            },
-            {
-              "text": "84",
-              "correct": false
             }
           ]
         },
         {
           "questionType": "ABCD-TF",
-          "question": "what is 4 * 8 #4",
+          "question": "In what programming paradigm, data and methods are encapsulated together in a single unit called an object?",
           "answers": [
             {
-              "text": "32",
+              "text": "Functional programming",
+              "correct": false
+            },
+            {
+              "text": "Object-oriented programming",
               "correct": true
             },
             {
-              "text": "16",
+              "text": "Procedural programming",
               "correct": false
             },
             {
-              "text": "48",
-              "correct": false
-            },
-            {
-              "text": "84",
+              "text": "Event-driven programming",
               "correct": false
             }
           ]
@@ -215,11 +207,25 @@
       ]
     },
     {
-      "quizName": "Java",
+      "quizName": "Poland",
       "questions": [
         {
           "questionType": "ABCD-TF",
-          "question": "In Java, it is possible to have a class that both extends another class and implements an interface.",
+          "question": "Poland's official language is German..",
+          "answers": [
+            {
+              "text": "False",
+              "correct": true
+            },
+            {
+              "text": "True",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "questionType": "ABCD-TF",
+          "question": "Poland is a member of the European Union. ",
           "answers": [
             {
               "text": "False",
@@ -233,89 +239,67 @@
         },
         {
           "questionType": "ABCD-TF",
-          "question": "What is the purpose of the \"final\" keyword in Java?",
+          "question": "What is the capital of Poland?",
           "answers": [
             {
-              "text": "to make a variable immutable",
+              "text": "Krakow",
               "correct": false
             },
             {
-              "text": "to make a class immutable",
-              "correct": false
-            },
-            {
-              "text": "to make a method immutable",
-              "correct": false
-            },
-            {
-              "text": "All of the above",
-              "correct": true
-            }
-          ]
-        },
-        {
-          "questionType": "ABCD-TF",
-          "question": "Which of the following is not a Java loop statement?",
-          "answers": [
-            {
-              "text": "for",
-              "correct": false
-            },
-            {
-              "text": "while",
-              "correct": false
-            },
-            {
-              "text": "do-while",
-              "correct": false
-            },
-            {
-              "text": "repeat",
-              "correct": true
-            }
-          ]
-        },
-        {
-          "questionType": "ABCD-TF",
-          "question": "What is the superclass of all classes in Java?",
-          "answers": [
-            {
-              "text": "Object",
+              "text": "Warsaw",
               "correct": true
             },
             {
-              "text": "Class",
+              "text": "Gdansk",
               "correct": false
             },
             {
-              "text": "Interface",
-              "correct": false
-            },
-            {
-              "text": "Abstract",
+              "text": "Poznan",
               "correct": false
             }
           ]
         },
         {
           "questionType": "ABCD-TF",
-          "question": "What is the default value of a local variable in Java",
+          "question": "Which river runs through Poland?",
           "answers": [
             {
-              "text": "null",
-              "correct": null
-            },
-            {
-              "text": "0",
+              "text": "Danube",
               "correct": false
             },
             {
-              "text": "undefined",
+              "text": "Elbe",
               "correct": false
             },
             {
-              "text": "not assigned",
+              "text": "Vistula",
               "correct": true
+            },
+            {
+              "text": "Rhine",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "questionType": "ABCD-TF",
+          "question": "What is the currency of Poland?",
+          "answers": [
+            {
+              "text": "Euro",
+              "correct": false
+            },
+            {
+              "text": "Zloty",
+              "correct": true
+            },
+            {
+              "text": "Forint",
+              "correct": false
+            },
+            {
+              "text": "Krona",
+              "correct": false
             }
           ]
         }
