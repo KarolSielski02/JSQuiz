@@ -213,6 +213,113 @@
           ]
         }
       ]
+    },
+    {
+      "quizName": "Java",
+      "questions": [
+        {
+          "questionType": "ABCD-TF",
+          "question": "In Java, it is possible to have a class that both extends another class and implements an interface.",
+          "answers": [
+            {
+              "text": "False",
+              "correct": false
+            },
+            {
+              "text": "True",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "questionType": "ABCD-TF",
+          "question": "What is the purpose of the \"final\" keyword in Java?",
+          "answers": [
+            {
+              "text": "to make a variable immutable",
+              "correct": false
+            },
+            {
+              "text": "to make a class immutable",
+              "correct": false
+            },
+            {
+              "text": "to make a method immutable",
+              "correct": false
+            },
+            {
+              "text": "All of the above",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "questionType": "ABCD-TF",
+          "question": "Which of the following is not a Java loop statement?",
+          "answers": [
+            {
+              "text": "for",
+              "correct": false
+            },
+            {
+              "text": "while",
+              "correct": false
+            },
+            {
+              "text": "do-while",
+              "correct": false
+            },
+            {
+              "text": "repeat",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "questionType": "ABCD-TF",
+          "question": "What is the superclass of all classes in Java?",
+          "answers": [
+            {
+              "text": "Object",
+              "correct": true
+            },
+            {
+              "text": "Class",
+              "correct": false
+            },
+            {
+              "text": "Interface",
+              "correct": false
+            },
+            {
+              "text": "Abstract",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "questionType": "ABCD-TF",
+          "question": "What is the default value of a local variable in Java",
+          "answers": [
+            {
+              "text": "null",
+              "correct": null
+            },
+            {
+              "text": "0",
+              "correct": false
+            },
+            {
+              "text": "undefined",
+              "correct": false
+            },
+            {
+              "text": "not assigned",
+              "correct": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }
